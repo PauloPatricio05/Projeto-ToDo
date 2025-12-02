@@ -54,6 +54,11 @@ public class TelaPrincipal {
         });
     }
     private void adicionarTarefa(String texto) {
+        String novoTexto = texto.trim();
+        if (novoTexto.equals("")){
+            JOptionPane.showMessageDialog(null,"Mensagem Vazia!","ERROR!",JOptionPane.ERROR_MESSAGE);
+            //System.out.println("Vazio!");
+        } else {
         Tarefa tarefa = new Tarefa(texto, tarefas.size());
         controlador.adicionarTarefaAtiva(tarefa);
         tblTarefas.revalidate();
