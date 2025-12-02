@@ -20,6 +20,7 @@ public class TelaPrincipal {
     private JPanel pnlAdicionar;
     private JTable tblTarefas;
     private JCheckBox chkExibirFinalizadas;
+    private JButton remove;
 
     private List<Tarefa> tarefas;
 
