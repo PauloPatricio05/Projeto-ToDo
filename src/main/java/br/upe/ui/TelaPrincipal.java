@@ -33,6 +33,10 @@ public class TelaPrincipal {
             adicionarTarefa(txtDescricaoTarefa.getText());
             txtDescricaoTarefa.setText("");
         });
+        txtDescricaoTarefa.addActionListener(e1 -> {
+            adicionarTarefa(txtDescricaoTarefa.getText());
+            txtDescricaoTarefa.setText("");
+        });
         chkExibirFinalizadas.addActionListener(e -> {
             boolean selecionado = ((JCheckBox) e.getSource()).isSelected();
             controlador.exibirFinalizadas(selecionado);
