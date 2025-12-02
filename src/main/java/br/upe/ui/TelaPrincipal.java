@@ -63,6 +63,7 @@ public class TelaPrincipal {
         controlador.adicionarTarefaAtiva(tarefa);
         tblTarefas.revalidate();
         tblTarefas.repaint();
+        }
     }
     public JPanel getPnlMain() {
         return this.pnlMain;
