@@ -23,12 +23,8 @@ public class TarefaControlador {
     }
     //Remover uma tarefa
     public void removerTarefa(Tarefa tarefa){
-        System.out.println("3. Controlador recebeu o pedido para remover.");
-        boolean removeu = this.tarefaTableModel.getTarefasAtivas().remove(tarefa);
-        System.out.println("4. Conseguiu remover da lista? " + removeu);
-
-        this.tarefaTableModel.fireTableDataChanged();
-        System.out.println("5. Tabela avisada."); // Aqui mandamos um "Aviso" para a tabela dizendo : Refaça tudo. (Obs: Esse método vem direto da class AbstractTableModel)
+        this.tarefaTableModel.getTarefasAtivas().remove(tarefa);
+        this.tarefaTableModel.fireTableDataChanged(); // Aqui mandamos um "Aviso" para a tabela dizendo : Refaça tudo. (Obs: Esse método vem direto da class AbstractTableModel)
     }
 
     public void exibirFinalizadas(boolean exibir) {
