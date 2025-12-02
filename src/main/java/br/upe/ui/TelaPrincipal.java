@@ -38,19 +38,6 @@ public class TelaPrincipal {
         chkExibirFinalizadas.addActionListener(e -> {
             boolean selecionado = ((JCheckBox) e.getSource()).isSelected();
             controlador.exibirFinalizadas(selecionado);
-
-        remove.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int linhaSelecionada = tblTarefas.getSelectedRow();
-                System.out.println("Botão selecionado:" + linhaSelecionada);
-
-                //Convenção do java Swing utilizar o -1.
-                if (linhaSelecionada != -1){
-                Tarefa tarefa = controlador.getTarefaTableModel().getTarefasAtivas().get(linhaSelecionada);
-                    controlador.removerTarefa(tarefa);
-                }
-            }
         });
 
         remove.addActionListener(new ActionListener() {
