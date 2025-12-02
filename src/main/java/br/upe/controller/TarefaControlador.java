@@ -31,8 +31,6 @@ public class TarefaControlador {
     public void exibirFinalizadas(boolean exibir) {
         tarefaTableModel.setExibirFinalizadas(exibir);
     }
-
-
     //Getter e Setters
 
     public TarefaTableModel getTarefaTableModel() {

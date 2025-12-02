@@ -2,11 +2,8 @@ package br.upe.ui;
 
 import br.upe.controller.TarefaControlador;
 import br.upe.model.Tarefa;
-import br.upe.model.TarefaTableModel;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -56,18 +53,15 @@ public class TelaPrincipal {
         });
         });
     }
-
     private void adicionarTarefa(String texto) {
         Tarefa tarefa = new Tarefa(texto, tarefas.size());
         controlador.adicionarTarefaAtiva(tarefa);
         tblTarefas.revalidate();
         tblTarefas.repaint();
     }
-
     public JPanel getPnlMain() {
         return this.pnlMain;
     }
-
     private void createUIComponents() {
         controlador = new TarefaControlador();
         tblTarefas = new JTable(controlador.getTarefaTableModel());

@@ -1,7 +1,6 @@
 package br.upe;
 
 import br.upe.ui.TelaPrincipal;
-
 import javax.swing.*;
 
 public class Main {
@@ -11,6 +10,7 @@ public class Main {
         JFrame frame = new JFrame("ToDo");
         frame.setContentPane(pnlMain.getPnlMain());
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
