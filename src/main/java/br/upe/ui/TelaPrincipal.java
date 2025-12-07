@@ -65,6 +65,9 @@ public class TelaPrincipal {
         controlador.adicionarTarefaAtiva(tarefa);
         tblTarefas.revalidate();
         tblTarefas.repaint();
+        //Instancia para salvar no Json todas as tarefas adicionadas
+        controlador.salvarDados();
+
         }
     }
     public JPanel getPnlMain() {
@@ -72,8 +75,14 @@ public class TelaPrincipal {
     }
     private void createUIComponents() {
         controlador = new TarefaControlador();
+        // --- LINHA NOVA: Carrega os dados assim que a tela é criada ---
+        controlador.carregarDados();
+        // --------------------------------------------------------------
         tblTarefas = new JTable(controlador.getTarefaTableModel());
         tblTarefas.getColumnModel().getColumn(0).setMaxWidth(20);
     }
 
+    public void salvarAoFechar() {
+        controlador.salvarDados();
+    }
 }
