@@ -25,6 +25,7 @@ public class TarefaControlador {
     //Remover uma tarefa
     public void removerTarefa(Tarefa tarefa){
         this.tarefaTableModel.getTarefasAtivas().remove(tarefa);
+        this.tarefaTableModel.getTarefasFinalizadas().remove(tarefa);
         this.tarefaTableModel.fireTableDataChanged(); // Aqui mandamos um "Aviso" para a tabela dizendo : Refaça tudo. (Obs: Esse método vem direto da class AbstractTableModel)
     }
 

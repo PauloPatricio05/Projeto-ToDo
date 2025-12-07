@@ -51,6 +51,9 @@ public class TelaPrincipal {
                     Tarefa tarefa = controlador.getTarefaTableModel().getTarefasAtivas().get(linhaSelecionada);
                     controlador.removerTarefa(tarefa);
                 }
+                else{
+                    JOptionPane.showMessageDialog(null,"Não há tarefa selecionada para ser removida!","ERROR!",JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
