@@ -15,17 +15,19 @@ public class Main {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        // --- MUDANÇA AQUI ---
-
+        // Dizemos à janela: "Quando clicarem no X, NÃO feche o programa imediatamente."
+        // Fazemos isso para ter tempo de salvar os dados antes do processo morrer.
+        //O JFrame.DO_NOTHING_ON_CLOSE tem a função de não deixar o programa fechar ao clicar no (X).
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
+        // Esse método roda automaticamente quando alguém clica no "X"
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                // Antes de morrer, o programa grita: "SALVA TUDO!"
+                //Salva as tarefas no arquivo JSON antes de sair
                 pnlMain.salvarAoFechar();
 
-                // Agora sim, pode fechar com segurança
+                //Encerra o programa de vez (o zero significa "sem erros")
                 System.exit(0);
             }
         });

@@ -39,8 +39,15 @@ public class TarefaControlador {
      */
     public void salvarDados(){
 
-        //Irei pegar as duas listas no estado atual delas, e jogar para o meu objeto
-        //que recebe as listas como parametro
+        // 1. Verificamos se as listas estão misturadas na tela
+        boolean estaMisturado = tarefaTableModel.isExibirFinalizadas();
+
+        // 2. Se estiverem misturadas, nós separamos elas forçadamente agora
+        if (estaMisturado) {
+            tarefaTableModel.setExibirFinalizadas(false);
+        }
+
+        // 3. Agora que garantimos que 'ativas' só tem ativas, criamos o backup
         BackupDados dados = new BackupDados(
                 tarefaTableModel.getTarefasAtivas(),
                 tarefaTableModel.getTarefasFinalizadas()
@@ -85,7 +92,7 @@ public class TarefaControlador {
         // Abre o arquivo para leitura (Reader)
         try (FileReader leitura = new FileReader(arquivo)) {
 
-            // Traduz do JSON (texto) de volta para o Objeto Java (BackupDados)
+            // Traduz do json (texto) de volta para o Objeto Java (BackupDados)
             BackupDados dados = gson.fromJson(leitura, BackupDados.class);
 
             // Se a leitura funcionou, atualiza as listas do TableModel
